@@ -9,6 +9,7 @@ pandas = "*"
 numpy = "*"
 python-dotenv = "*"
 azure-storage-blob = "*"
+jupyter = "*"
 
 [dev-packages]
 
