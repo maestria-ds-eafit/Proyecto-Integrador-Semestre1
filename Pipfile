@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 azure-data-tables = "*"
+pandas = "*"
+numpy = "*"
+python-dotenv = "*"
+azure-storage-blob = "*"
 
 [dev-packages]
 
