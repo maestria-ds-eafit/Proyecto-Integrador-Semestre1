@@ -10,6 +10,7 @@ numpy = "*"
 python-dotenv = "*"
 azure-storage-blob = "*"
 jupyter = "*"
+chardet = "*"
 
 [dev-packages]
 
