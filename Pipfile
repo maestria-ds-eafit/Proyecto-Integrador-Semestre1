@@ -18,6 +18,7 @@ nbformat = "*"
 folium = "*"
 geopandas = "*"
 dash = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
