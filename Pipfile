@@ -12,9 +12,14 @@ azure-storage-blob = "*"
 jupyter = "*"
 chardet = "*"
 openpyxl = "*"
+scipy = "*"
 matplotlib = "*"
 seaborn = "*"
-scipy = "*"
+plotly = "*"
+nbformat = "*"
+folium = "*"
+geopandas = "*"
+dash = "*"
 
 [dev-packages]
 
