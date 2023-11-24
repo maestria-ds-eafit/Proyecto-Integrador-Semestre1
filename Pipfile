@@ -15,6 +15,9 @@ matplotlib = "*"
 seaborn = "*"
 plotly = "*"
 nbformat = "*"
+folium = "*"
+geopandas = "*"
+dash = "*"
 
 [dev-packages]
 
