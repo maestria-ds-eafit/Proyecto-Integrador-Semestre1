@@ -15,6 +15,7 @@ matplotlib = "*"
 seaborn = "*"
 plotly = "*"
 nbformat = "*"
+folium = "*"
 
 [dev-packages]
 
