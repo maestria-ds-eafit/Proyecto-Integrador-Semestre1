@@ -11,6 +11,10 @@ python-dotenv = "*"
 azure-storage-blob = "*"
 jupyter = "*"
 chardet = "*"
+matplotlib = "*"
+seaborn = "*"
+plotly = "*"
+nbformat = "*"
 
 [dev-packages]
 
