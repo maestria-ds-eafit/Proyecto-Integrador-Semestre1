@@ -21,6 +21,7 @@ folium = "*"
 geopandas = "*"
 dash = "*"
 scikit-learn = "*"
+statsmodels = "*"
 
 [dev-packages]
 
