@@ -12,6 +12,7 @@ def perform_lasso_mlr(data):
     fecha_corte = data.get("fecha_corte", "2023-07-01")
     X_train = df[df["Date"] < fecha_corte].drop(["Date", "energy_price"], axis=1)
     X_test = df[df["Date"] >= fecha_corte].drop(["Date", "energy_price"], axis=1)
+    X_test_dates = df[df["Date"] >= fecha_corte]["Date"]
     y_train = df[df["Date"] < fecha_corte]["energy_price"]
     y_test = df[df["Date"] >= fecha_corte]["energy_price"]
     lasso = Lasso()
@@ -41,7 +42,9 @@ def perform_lasso_mlr(data):
 
     print("Mean Squared Error on Test Data:", mse_test)
 
-    coefficients = lasso_cv.best_estimator_.coef_
+    best_lasso = lasso_cv.best_estimator_
+
+    coefficients = best_lasso.coef_
 
     feature_names = X_train.columns
 
@@ -52,3 +55,11 @@ def perform_lasso_mlr(data):
     # Print the non-zero coefficients and their corresponding feature names
     for feature, coef in zip(non_zero_features, non_zero_coefficients):
         print(f"{feature}: {coef}")
+
+    return {
+        "best_lasso": best_lasso,
+        "y_pred": y_pred,
+        "mse_test": mse_test,
+        "y_test": y_test,
+        "X_test_dates": X_test_dates,
+    }
