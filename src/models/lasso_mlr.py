@@ -1,5 +1,5 @@
 from sklearn.model_selection import RandomizedSearchCV, KFold
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
 from lags import create_df_with_lags
 from sklearn.linear_model import Lasso
 import numpy as np
@@ -11,6 +11,7 @@ def perform_lasso_mlr(data):
         df = create_df_with_lags(df, data["lags"])
     fecha_corte = data.get("fecha_corte", "2023-07-01")
     X_train = df[df["Date"] < fecha_corte].drop(["Date", "energy_price"], axis=1)
+    X_train_dates = df[df["Date"] < fecha_corte]["Date"]
     X_test = df[df["Date"] >= fecha_corte].drop(["Date", "energy_price"], axis=1)
     X_test_dates = df[df["Date"] >= fecha_corte]["Date"]
     y_train = df[df["Date"] < fecha_corte]["energy_price"]
@@ -38,9 +39,15 @@ def perform_lasso_mlr(data):
 
     y_pred = lasso_cv.predict(X_test)
 
+    y_pred_train = lasso_cv.predict(X_train)
+
     mse_test = mean_squared_error(y_test, y_pred)
 
+    mape_test = mean_absolute_percentage_error(y_test, y_pred)
+
     print("Mean Squared Error on Test Data:", mse_test)
+
+    print("Mean Absolute Percentage Error on Test Data:", mape_test)
 
     best_lasso = lasso_cv.best_estimator_
 
@@ -60,6 +67,12 @@ def perform_lasso_mlr(data):
         "best_lasso": best_lasso,
         "y_pred": y_pred,
         "mse_test": mse_test,
+        "mape_test": mape_test,
         "y_test": y_test,
         "X_test_dates": X_test_dates,
+        "X_train": X_train,
+        "X_train_dates": X_train_dates,
+        "y_train": y_train,
+        "y_pred_train": y_pred_train,
+    
     }

@@ -23,6 +23,7 @@ dash = "*"
 scikit-learn = "*"
 pingouin = "*"
 statsmodels = "*"
+neuralprophet = "*"
 
 [dev-packages]
 
