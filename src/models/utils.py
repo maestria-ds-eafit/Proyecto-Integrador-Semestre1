@@ -9,4 +9,5 @@ def get_significant_variables(result_summary):
         p_value = float(result_summary_df[i][4].data)
         if p_value < significance_level:
             significant_variables.append(result_summary_df[i][0].data)
-    print(pd.DataFrame({"Variables significativas": significant_variables}))
+    #print(pd.DataFrame({"Variables significativas": significant_variables}))
+    return significant_variables
