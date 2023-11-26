@@ -74,5 +74,7 @@ def perform_lasso_mlr(data):
         "X_train_dates": X_train_dates,
         "y_train": y_train,
         "y_pred_train": y_pred_train,
+        "lasso_coefficients":non_zero_coefficients,
+        "lasso_features":non_zero_features
     
     }
