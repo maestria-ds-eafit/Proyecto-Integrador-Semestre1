@@ -3,6 +3,7 @@ from lags import create_df_with_lags
 import statsmodels.api as sm
 from utils import get_significant_variables
 
+
 def perform_mlr(data):
     df = data["df"]
     if data.get("lags", 0) > 0:
@@ -24,10 +25,6 @@ def perform_mlr(data):
     result = model.fit()
     result_summary = result.summary()
 
-    # Print out the statistics
-    #print(result_summary)
-
-    #get_significant_variables(result_summary)
     significant_variables = get_significant_variables(result_summary)
 
     X_new_with_intercept = sm.add_constant(X_test)
@@ -42,19 +39,17 @@ def perform_mlr(data):
 
     print(f"Mean Squared Error on Test Data: {mse}")
     print(f"Mean Absolute Percentage Error: {mape}")
-    
+
     return {
-            "significant_variables" : significant_variables,
-            "y_pred": y_pred,
-            "y_test": y_test,
-            "mse_test": mse,
-            "mape_test": mape,
-            "X_test_dates": X_test_dates,
-            "X_train": X_train,
-            "X_train_dates": X_train_dates,
-            "y_train": y_train,
-            "y_pred_train": y_pred_train,
-            "X_test" : X_test
-        }
-
-
+        "significant_variables": significant_variables,
+        "y_pred": y_pred,
+        "y_test": y_test,
+        "mse_test": mse,
+        "mape_test": mape,
+        "X_test_dates": X_test_dates,
+        "X_train": X_train,
+        "X_train_dates": X_train_dates,
+        "y_train": y_train,
+        "y_pred_train": y_pred_train,
+        "X_test": X_test,
+    }
