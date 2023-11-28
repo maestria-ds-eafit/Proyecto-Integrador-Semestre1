@@ -53,4 +53,5 @@ def perform_mlr(data):
         "y_train": y_train,
         "y_pred_train": y_pred_train,
         "X_test": X_test,
+        "df_with_lags": df,
     }
