@@ -28,8 +28,9 @@ def perform_mlr(data):
     significant_variables = get_significant_variables(result_summary)
 
     X_new_with_intercept = sm.add_constant(X_test)
+    X_new_with_intercept_train = sm.add_constant(X_train)
     y_pred = result.predict(X_new_with_intercept)
-    y_pred_train = result.predict(X_new_with_intercept)
+    y_pred_train = result.predict(X_new_with_intercept_train)
 
     # Calculate MSE
     mse = mean_squared_error(y_test, y_pred)
