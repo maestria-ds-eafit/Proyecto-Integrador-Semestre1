@@ -6,7 +6,7 @@ import numpy as np
 
 
 def perform_lasso_mlr(data):
-    df = data["df"]
+    df = data["df"].copy()
     if data.get("lags", 0) > 0:
         df = create_df_with_lags(df, data["lags"])
     fecha_corte = data.get("fecha_corte", "2023-07-01")
@@ -74,7 +74,6 @@ def perform_lasso_mlr(data):
         "X_train_dates": X_train_dates,
         "y_train": y_train,
         "y_pred_train": y_pred_train,
-        "lasso_coefficients":non_zero_coefficients,
-        "lasso_features":non_zero_features
-    
+        "lasso_coefficients": non_zero_coefficients,
+        "lasso_features": non_zero_features,
     }

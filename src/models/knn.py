@@ -5,7 +5,7 @@ from lags import create_df_with_lags
 
 
 def perform_knn(data):
-    df = data["df"]
+    df = data["df"].copy()
     if data.get("lags", 0) > 0:
         df = create_df_with_lags(df, data["lags"])
     fecha_corte = data.get("fecha_corte", "2023-07-01")
