@@ -76,4 +76,5 @@ def perform_lasso_mlr(data):
         "y_pred_train": y_pred_train,
         "lasso_coefficients": non_zero_coefficients,
         "lasso_features": non_zero_features,
+        "df_with_lags":df,
     }
