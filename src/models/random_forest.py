@@ -1,5 +1,5 @@
 from sklearn.model_selection import RandomizedSearchCV
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
 from sklearn.ensemble import RandomForestRegressor
 from lags import create_df_with_lags
 
@@ -44,5 +44,7 @@ def perform_random_forest(data):
     y_pred = best_rf_regressor.predict(X_test)
 
     mse_test = mean_squared_error(y_test, y_pred)
+    mape = mean_absolute_percentage_error(y_test, y_pred)
 
     print("Mean Squared Error on Test Data:", mse_test)
+    print(f"Mean Absolute Percentage Error: {mape}")
