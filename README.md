@@ -9,7 +9,7 @@
 
 ## Requisitos para el ambiente local
 
-Recomendamos altamente usar un entorno Linux o Mac para el desarrollo del proyecto.
+Recomendamos altamente usar un entorno Linux o Mac para el desarrollo del proyecto. En este proyecto utilizamos `pyenv` para manejar la versión de python y `pipenv` para manejar las dependencias del proyecto. Si no se desea utilizar `pipenv`, se puede instalar directamente con `pip` utilizando el archivo `requirements.txt`.
 
 * Utilizar `pyenv` para manejar una versión local de python especificada en el archivo `.python-version`. Esto se puede instalar siguiendo las instrucciones en <https://github.com/pyenv/pyenv>
 
@@ -32,3 +32,11 @@ Recomendamos altamente usar un entorno Linux o Mac para el desarrollo del proyec
   ```terminal
   pipenv install
   ```
+
+## Instalación con `requirements.txt`
+
+Si no se desea utilizar `pipenv` para manejar las dependencias del proyecto, se puede instalar directamente con `pip` utilizando el archivo `requirements.txt`
+
+```terminal
+pip install -r requirements.txt
+```
